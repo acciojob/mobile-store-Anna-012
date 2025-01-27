@@ -1,32 +1,32 @@
-import React from 'react'
-import{useParams, useNavigate} from "react-router-dom"
-const data = [
-    {
-        name : "Samsung Galaxy S8 64GB Black",
-        price : 16303,
-        desc : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore eum ratione at tempora dolorem maxime vel perspiciatis amet non. Error eos suscipit in ad fugit! Ut animi eligendi inventore iste.",
-        id : 1
-    },
-    {
-        name : "Samsung Galaxy S9 64GB Black",
-        price : 20888,
-        id : 2,
-        desc : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore eum ratione at tempora dolorem maxime vel perspiciatis amet non. Error eos suscipit in ad fugit! Ut animi eligendi inventore iste.",
+import React from 'react';
 
-        
-    },
-    {
-        name : "Samsung Galaxy S8+ 64GB Black",
-        price : 18701,
-        id : 3,
-        desc : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore eum ratione at tempora dolorem maxime vel perspiciatis amet non. Error eos suscipit in ad fugit! Ut animi eligendi inventore iste.",
+const products = [
+  { id: 1, name: 'Samsung Galaxy S8', price: 16303, color: 'Black' },
+  { id: 2, name: 'Samsung Galaxy S9', price: 20888, color: 'Black' },
+  { id: 3, name: 'Samsung Galaxy S8+', price: 18701, color: 'Black' },
+];
 
+function ProductDetail({ match }) {
+  const productId = parseInt(match.params.id);
+  const product = products.find(p => p.id === productId);
 
-    },
-    {
-        name : "Samsung Galaxy S9+ 64GB Black",
-        price : 49999,
-        id : 4,
+  return (
+    <div>
+      <h1>Product Detail</h1>
+      {product ? (
+        <div>
+          <h2>{product.name}</h2>
+          <p>Price: {product.price}</p>
+          <p>Color: {product.color}</p>
+        </div>
+      ) : (
+        <p>Product not found!</p>
+      )}
+    </div>
+  );
+}
+
+export default ProductDetail;
         desc : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore eum ratione at tempora dolorem maxime vel perspiciatis amet non. Error eos suscipit in ad fugit! Ut animi eligendi inventore iste.",
 
 
